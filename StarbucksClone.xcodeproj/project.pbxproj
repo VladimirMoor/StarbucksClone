@@ -11,6 +11,13 @@
 		31D75B5229A7444000437CC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B5129A7444000437CC7 /* ViewController.swift */; };
 		31D75B5729A7444000437CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D75B5629A7444000437CC7 /* Assets.xcassets */; };
 		31D75B5A29A7444000437CC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D75B5829A7444000437CC7 /* LaunchScreen.storyboard */; };
+		31D75B6329A74AD600437CC7 /* StarbucksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6229A74AD600437CC7 /* StarbucksViewController.swift */; };
+		31D75B6529A74B1B00437CC7 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6429A74B1B00437CC7 /* ScanViewController.swift */; };
+		31D75B6729A74C0F00437CC7 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6629A74C0F00437CC7 /* OrderViewController.swift */; };
+		31D75B6929A74C9300437CC7 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6829A74C9300437CC7 /* GiftViewController.swift */; };
+		31D75B6B29A74D1B00437CC7 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6A29A74D1B00437CC7 /* StoreViewController.swift */; };
+		31D75B6D29A74E2700437CC7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6C29A74E2700437CC7 /* HomeViewController.swift */; };
+		31D75B6F29A7540E00437CC7 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B6E29A7540E00437CC7 /* Factories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +27,13 @@
 		31D75B5629A7444000437CC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31D75B5929A7444000437CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31D75B5B29A7444000437CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31D75B6229A74AD600437CC7 /* StarbucksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksViewController.swift; sourceTree = "<group>"; };
+		31D75B6429A74B1B00437CC7 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		31D75B6629A74C0F00437CC7 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		31D75B6829A74C9300437CC7 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		31D75B6A29A74D1B00437CC7 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		31D75B6C29A74E2700437CC7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		31D75B6E29A7540E00437CC7 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +69,13 @@
 				31D75B6129A7460000437CC7 /* Files */,
 				31D75B4D29A7444000437CC7 /* AppDelegate.swift */,
 				31D75B5129A7444000437CC7 /* ViewController.swift */,
+				31D75B6229A74AD600437CC7 /* StarbucksViewController.swift */,
+				31D75B6C29A74E2700437CC7 /* HomeViewController.swift */,
+				31D75B6429A74B1B00437CC7 /* ScanViewController.swift */,
+				31D75B6629A74C0F00437CC7 /* OrderViewController.swift */,
+				31D75B6829A74C9300437CC7 /* GiftViewController.swift */,
+				31D75B6A29A74D1B00437CC7 /* StoreViewController.swift */,
+				31D75B6E29A7540E00437CC7 /* Factories.swift */,
 			);
 			path = StarbucksClone;
 			sourceTree = "<group>";
@@ -139,8 +160,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D75B6F29A7540E00437CC7 /* Factories.swift in Sources */,
+				31D75B6329A74AD600437CC7 /* StarbucksViewController.swift in Sources */,
+				31D75B6729A74C0F00437CC7 /* OrderViewController.swift in Sources */,
 				31D75B5229A7444000437CC7 /* ViewController.swift in Sources */,
+				31D75B6D29A74E2700437CC7 /* HomeViewController.swift in Sources */,
 				31D75B4E29A7444000437CC7 /* AppDelegate.swift in Sources */,
+				31D75B6929A74C9300437CC7 /* GiftViewController.swift in Sources */,
+				31D75B6529A74B1B00437CC7 /* ScanViewController.swift in Sources */,
+				31D75B6B29A74D1B00437CC7 /* StoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
