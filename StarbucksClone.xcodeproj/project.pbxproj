@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31D75B4E29A7444000437CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B4D29A7444000437CC7 /* AppDelegate.swift */; };
-		31D75B5029A7444000437CC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B4F29A7444000437CC7 /* SceneDelegate.swift */; };
 		31D75B5229A7444000437CC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B5129A7444000437CC7 /* ViewController.swift */; };
-		31D75B5529A7444000437CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D75B5329A7444000437CC7 /* Main.storyboard */; };
 		31D75B5729A7444000437CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D75B5629A7444000437CC7 /* Assets.xcassets */; };
 		31D75B5A29A7444000437CC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D75B5829A7444000437CC7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		31D75B4A29A7444000437CC7 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D75B4D29A7444000437CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31D75B4F29A7444000437CC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		31D75B5129A7444000437CC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		31D75B5429A7444000437CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31D75B5629A7444000437CC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31D75B5929A7444000437CC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31D75B5B29A7444000437CC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,21 @@
 		31D75B4C29A7444000437CC7 /* StarbucksClone */ = {
 			isa = PBXGroup;
 			children = (
+				31D75B6129A7460000437CC7 /* Files */,
 				31D75B4D29A7444000437CC7 /* AppDelegate.swift */,
-				31D75B4F29A7444000437CC7 /* SceneDelegate.swift */,
 				31D75B5129A7444000437CC7 /* ViewController.swift */,
-				31D75B5329A7444000437CC7 /* Main.storyboard */,
+			);
+			path = StarbucksClone;
+			sourceTree = "<group>";
+		};
+		31D75B6129A7460000437CC7 /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				31D75B5629A7444000437CC7 /* Assets.xcassets */,
 				31D75B5829A7444000437CC7 /* LaunchScreen.storyboard */,
 				31D75B5B29A7444000437CC7 /* Info.plist */,
 			);
-			path = StarbucksClone;
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +129,6 @@
 			files = (
 				31D75B5A29A7444000437CC7 /* LaunchScreen.storyboard in Resources */,
 				31D75B5729A7444000437CC7 /* Assets.xcassets in Resources */,
-				31D75B5529A7444000437CC7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,21 +141,12 @@
 			files = (
 				31D75B5229A7444000437CC7 /* ViewController.swift in Sources */,
 				31D75B4E29A7444000437CC7 /* AppDelegate.swift in Sources */,
-				31D75B5029A7444000437CC7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		31D75B5329A7444000437CC7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31D75B5429A7444000437CC7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		31D75B5829A7444000437CC7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +284,6 @@
 				INFOPLIST_FILE = StarbucksClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -324,7 +315,6 @@
 				INFOPLIST_FILE = StarbucksClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
