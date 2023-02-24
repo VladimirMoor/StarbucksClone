@@ -12,28 +12,30 @@ class HomeViewController: StarbucksViewController {
     let headerView = HomeHeaderView()
     var headerViewTopConstraint: NSLayoutConstraint?
     
-    let tableView = UITableView()
+    let scrollView = UIScrollView()
+    let stackView = UIStackView()
     
-    let cellId = "cellId"
     let tiles = [
-        "Star balance",
-        "Bonus stars",
-        "Try these",
-        "Welcome back",
-        "Uplifting"
+        TileView("Star balance"),
+        TileView("Bonus stars"),
+        TileView("Try these"),
+        TileView("Welcome back"),
+        TileView("Uplifting")
     ]
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         title = "Home"
         
-        setupTableView()
+        setTabBarImage(imageName: "house.fill", title: "Home")
+        setupScrollView()
         style()
         layout()
     }
     
-    override func commonInit() {
-        setTabBarImage(imageName: "house.fill", title: "Home")
+    func setupScrollView() {
+        scrollView.delegate = self
+        
     }
     
 }
@@ -42,61 +44,51 @@ extension HomeViewController {
     func style() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.backgroundColor = .systemPink
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        
     }
     
     func layout() {
         view.addSubview(headerView)
-        view.addSubview(tableView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        
+        for tile in tiles {
+            addChild(tile)
+            stackView.addArrangedSubview(tile.view)
+            tile.didMove(toParent: self)
+        }
+
+        
+        
+        headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
 
         NSLayoutConstraint.activate([
+            headerViewTopConstraint!,
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
-        
-        headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        guard let headerViewTopConstraint = headerViewTopConstraint else { return }
-        NSLayoutConstraint.activate([headerViewTopConstraint])
     }
 }
 
-// MARK: TableView
-extension HomeViewController: UITableViewDataSource {
-
-    func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.tableFooterView = UIView()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = tiles[indexPath.row]
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tiles.count
-    }
-    
-    
-    
-}
-
-extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
-    
+extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         
@@ -112,7 +104,5 @@ extension HomeViewController: UITableViewDelegate {
             self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
             self.view.layoutIfNeeded()
         }
-        
     }
-    
 }
