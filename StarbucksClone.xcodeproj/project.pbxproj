@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		319466B029A8E8DB005DC39B /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319466AF29A8E8DB005DC39B /* TileView.swift */; };
+		319466B029A8E8DB005DC39B /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319466AF29A8E8DB005DC39B /* PlaceholderViewController.swift */; };
+		319466B229A9EDFC005DC39B /* TileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319466B129A9EDFC005DC39B /* TileViewController.swift */; };
+		319466B429A9EEB4005DC39B /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319466B329A9EEB4005DC39B /* TileView.swift */; };
 		31D75B4E29A7444000437CC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B4D29A7444000437CC7 /* AppDelegate.swift */; };
 		31D75B5229A7444000437CC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D75B5129A7444000437CC7 /* ViewController.swift */; };
 		31D75B5729A7444000437CC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D75B5629A7444000437CC7 /* Assets.xcassets */; };
@@ -23,7 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		319466AF29A8E8DB005DC39B /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		319466AF29A8E8DB005DC39B /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		319466B129A9EDFC005DC39B /* TileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileViewController.swift; sourceTree = "<group>"; };
+		319466B329A9EEB4005DC39B /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		31D75B4A29A7444000437CC7 /* StarbucksClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D75B4D29A7444000437CC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31D75B5129A7444000437CC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +103,9 @@
 			children = (
 				31D75B6C29A74E2700437CC7 /* HomeViewController.swift */,
 				31D75B7129A8A23400437CC7 /* HomeHeaderView.swift */,
-				319466AF29A8E8DB005DC39B /* TileView.swift */,
+				319466AF29A8E8DB005DC39B /* PlaceholderViewController.swift */,
+				319466B129A9EDFC005DC39B /* TileViewController.swift */,
+				319466B329A9EEB4005DC39B /* TileView.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -174,14 +180,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				319466B029A8E8DB005DC39B /* TileView.swift in Sources */,
+				319466B029A8E8DB005DC39B /* PlaceholderViewController.swift in Sources */,
 				31D75B6F29A7540E00437CC7 /* Factories.swift in Sources */,
+				319466B429A9EEB4005DC39B /* TileView.swift in Sources */,
 				31D75B6329A74AD600437CC7 /* StarbucksViewController.swift in Sources */,
 				31D75B6729A74C0F00437CC7 /* OrderViewController.swift in Sources */,
 				31D75B5229A7444000437CC7 /* ViewController.swift in Sources */,
 				31D75B6D29A74E2700437CC7 /* HomeViewController.swift in Sources */,
 				31D75B4E29A7444000437CC7 /* AppDelegate.swift in Sources */,
 				31D75B7229A8A23400437CC7 /* HomeHeaderView.swift in Sources */,
+				319466B229A9EDFC005DC39B /* TileViewController.swift in Sources */,
 				31D75B6929A74C9300437CC7 /* GiftViewController.swift in Sources */,
 				31D75B6529A74B1B00437CC7 /* ScanViewController.swift in Sources */,
 				31D75B6B29A74D1B00437CC7 /* StoreViewController.swift in Sources */,
