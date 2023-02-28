@@ -16,7 +16,7 @@ class HomeViewController: StarbucksViewController {
     let stackView = UIStackView()
     
     let tiles = [
-        RewardTileViewController(),
+        RewardsTileViewController(),
         TileViewController(title: "Breakfast made meatless",
                            subtitle: "Try the Beyond Meat, Cheddar & Egg Breakfast Sandwich. Vegetarian and protein-packed.",
                            imageName: "meatless"),

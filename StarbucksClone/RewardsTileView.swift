@@ -7,10 +7,10 @@
 
 import UIKit
 
-class RewardTileView: UIView {
+class RewardsTileView: UIView {
     let balanceView = BalanceView()
     let rewardsButton = UIButton()
-    let rewardsGraphView = UIView() //RewardsGraphView()
+    let rewardsGraphView = RewardsGraphView()
     let starRewardsView = UIView() //StarRewardsView()
     var detailsButton = UIButton()
     
@@ -31,7 +31,7 @@ class RewardTileView: UIView {
     }
 }
 
-extension RewardTileView {
+extension RewardsTileView {
     
     func makeRewardsOptionButton() {
         rewardsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -77,11 +77,13 @@ extension RewardTileView {
             balanceView.topAnchor.constraint(equalTo: topAnchor),
             balanceView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             rewardsButton.centerYAnchor.constraint(equalTo: balanceView.pointsLabel.centerYAnchor),
-            
             trailingAnchor.constraint(equalToSystemSpacingAfter: rewardsButton.trailingAnchor, multiplier: 3),
+            
             rewardsGraphView.topAnchor.constraint(equalToSystemSpacingBelow: balanceView.bottomAnchor, multiplier: 1),
             rewardsGraphView.centerXAnchor.constraint(equalTo: centerXAnchor),
             rewardsGraphView.widthAnchor.constraint(equalToConstant: frame.width),
+//            rewardsGraphView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
+//            trailingAnchor.constraint(equalToSystemSpacingAfter: rewardsGraphView.trailingAnchor, multiplier: 2),
             
             starRewardsView.topAnchor.constraint(equalTo: rewardsGraphView.bottomAnchor, constant: 8),
             starRewardsView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier:1),
@@ -92,6 +94,13 @@ extension RewardTileView {
             bottomAnchor.constraint(equalToSystemSpacingBelow: detailsButton.bottomAnchor, multiplier: 2),
         
         ])
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        rewardsGraphView.actualFrameWidth = frame.width
+        rewardsGraphView.drawRewardsGraph()
     }
     
 }
