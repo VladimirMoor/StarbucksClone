@@ -7,13 +7,18 @@
 
 import UIKit
 
+private enum Constants {
+    static let buttonHeight: CGFloat = 60
+    static let buttonWidth: CGFloat = 170
+}
+
 class HomeViewController: StarbucksViewController {
-    
     let headerView = HomeHeaderView()
     var headerViewTopConstraint: NSLayoutConstraint?
     
     let scrollView = UIScrollView()
     let stackView = UIStackView()
+    let scanButton = UIButton()
     
     let tiles = [
         RewardsTileViewController(),
@@ -48,20 +53,30 @@ class HomeViewController: StarbucksViewController {
 
 extension HomeViewController {
     func style() {
+        view.backgroundColor = .backgroundWhite
+        
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.axis = .vertical
         stackView.spacing = 8
         
+        scanButton.translatesAutoresizingMaskIntoConstraints = false
+        scanButton.setTitle("Scan in store", for: .normal)
+        scanButton.titleLabel?.minimumScaleFactor = 0.5
+        scanButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        scanButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        scanButton.backgroundColor = .lightGreen
+        scanButton.setTitleColor(.white, for: .normal)
+        scanButton.layer.cornerRadius = Constants.buttonHeight / 2
+        
     }
     
     func layout() {
         view.addSubview(headerView)
         view.addSubview(scrollView)
+        view.addSubview(scanButton)
         scrollView.addSubview(stackView)
         
         for tile in tiles {
@@ -89,7 +104,12 @@ extension HomeViewController {
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            scanButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            scanButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            scanButton.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            scanButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
     }
 }

@@ -11,8 +11,10 @@ class RewardsTileView: UIView {
     let balanceView = BalanceView()
     let rewardsButton = UIButton()
     let rewardsGraphView = RewardsGraphView()
-    let starRewardsView = UIView() //StarRewardsView()
+    let starRewardsView = StarRewardsView()
     var detailsButton = UIButton()
+    
+    var heightConstraint: NSLayoutConstraint?
     
     
     override init(frame: CGRect) {
@@ -53,10 +55,6 @@ extension RewardsTileView {
         
     }
     
-    @objc func rewardsOptionsTapped() {
-        print("tap")
-    }
-    
     func layout() {
         balanceView.translatesAutoresizingMaskIntoConstraints = false
         rewardsGraphView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,6 +71,9 @@ extension RewardsTileView {
         addSubview(rewardsGraphView)
         addSubview(starRewardsView)
         addSubview(detailsButton)
+        
+        heightConstraint = starRewardsView.heightAnchor.constraint(equalToConstant: 0)
+        
         NSLayoutConstraint.activate([
             balanceView.topAnchor.constraint(equalTo: topAnchor),
             balanceView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
@@ -88,12 +89,14 @@ extension RewardsTileView {
             starRewardsView.topAnchor.constraint(equalTo: rewardsGraphView.bottomAnchor, constant: 8),
             starRewardsView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier:1),
             trailingAnchor.constraint(equalToSystemSpacingAfter: starRewardsView.trailingAnchor, multiplier: 1),
+            heightConstraint!,
             
             detailsButton.topAnchor.constraint(equalToSystemSpacingBelow: starRewardsView.bottomAnchor, multiplier:2),
             detailsButton.leadingAnchor.constraint(equalTo: balanceView.leadingAnchor),
             bottomAnchor.constraint(equalToSystemSpacingBelow: detailsButton.bottomAnchor, multiplier: 2),
-        
         ])
+        
+        starRewardsView.isHidden = true
     }
     
     override func layoutSubviews() {
@@ -103,4 +106,51 @@ extension RewardsTileView {
         rewardsGraphView.drawRewardsGraph()
     }
     
+}
+
+extension RewardsTileView {
+    
+    @objc func rewardsOptionsTapped() {
+        if heightConstraint?.constant == 0 {
+            self.setChevronUp()
+            
+            let heightAnimator = UIViewPropertyAnimator(duration: 0.75, curve: .easeInOut) {
+                self.heightConstraint?.constant = 270
+                self.layoutIfNeeded()
+            }
+            
+            heightAnimator.startAnimation()
+            
+            let alphaAnimator = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+                self.starRewardsView.isHidden = false
+                self.starRewardsView.alpha = 1
+            }
+            
+            alphaAnimator.startAnimation(afterDelay: 0.5)
+        } else {
+            
+            self.setChevronDown()
+            
+            let animator = UIViewPropertyAnimator(duration: 0.75, curve: .easeInOut) {
+                self.heightConstraint?.constant = 0
+                self.starRewardsView.isHidden = true
+                self.starRewardsView.alpha = 0
+                self.layoutIfNeeded()
+            }
+            
+            animator.startAnimation()
+        }
+    }
+    
+    private func setChevronUp() {
+        let configuration = UIImage.SymbolConfiguration(scale: .small)
+        let image = UIImage(systemName: "chevron.up", withConfiguration: configuration)
+        rewardsButton.setImage(image, for: .normal)
+    }
+    
+    private func setChevronDown() {
+        let configuration = UIImage.SymbolConfiguration(scale: .small)
+        let image = UIImage(systemName: "chevron.down", withConfiguration: configuration)
+        rewardsButton.setImage(image, for: .normal)
+    }
 }
